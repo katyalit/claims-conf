@@ -1,4 +1,5 @@
-<form role = "form">
+<form role = "form"> 
+   <form class="was-validated">
 <div class="container">
 
   <nav-tabs  [pages] = "pages" ></nav-tabs>
@@ -10,25 +11,31 @@
   <div page [of]="multiPage" [name]="'Contact Information'">
   <div class="p-3 mb-2 bg-secondary text-white"><b>Contact Information</b></div>
 
+
+
   <div class="form-group container">
         <label for="text">What is your current name? </label>
         <div class="input-group-prepend"> 
+
           <span class="input-group-text" id="">Family Name:</span>
-          <input type="text" class="form-control">
+          <input  name="familyName" ngModel  #familyName="ngModel" required minlength="1" 
+           id="familyName" type="text" class="form-control">
+          <div class="invalid-feedback" *ngIf ="familyName.touched &&!familyName.valid"> Family name is required</div>
+
           <span class="input-group-text" id="">First Name:</span>
-          <input type="text" class="form-control">
+          <input name="firstName" ngModel #firstName="ngModel" required minlength="1"
+          id="firstName" type="text" class="form-control">
+          <div class="invalid-feedback" *ngIf ="!familyName.valid">First name is required</div>
+
           <span class="input-group-text" id="">Middle Name:</span>
-          <input type="text" class="form-control">
+          <input name= "middleName"  type="text" class="form-control">
         </div>
   </div>
+  
         
 
   <div class="form-group container">
-    <!-- <div class="input-group container"> -->
-      <!-- <div class="row"> -->
         <label for="text">Have you ever used another name? If yes, please include all previous names (including maiden name): </label>
-      <!-- </div> -->
-      <!-- <div class="row"> -->
         <div class="input-group-prepend"> 
           <span class="input-group-text" id="">Family Name:</span>
           <input type="text" class="form-control">
@@ -37,21 +44,21 @@
           <span class="input-group-text" id="">Middle Name:</span>
           <input type="text" class="form-control">
         </div>
-      <!-- </div> -->
-    <!-- </div> -->
   </div>
-
-
 
   <div class="form-group container">
-    <label for="gender">Gender </label>
-    <div class="form-group">
-      <input type="radio" name="gender" value=" male" checked> Male
-      <input type="radio" name="gender" value=" female"> Female<br>
-    </div>
+  <label for="text">Gender:</label>
+  <div class="custom-control custom-radio ">
+    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+    <label class="custom-control-label" for="customControlValidation2">Male</label>
+  </div>
+  <div class="custom-control custom-radio mb-3 ">
+    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+    <label class="custom-control-label" for="customControlValidation3">Female</label>
+    <div class="invalid-feedback">Gender required</div>
+  </div>
   </div>
 
-  
 
   <div class="form-group container">
     <label for="text">Where do you live?<br> </label>
@@ -1003,4 +1010,6 @@ City/town hall (in Europe), or a governmental office of the State of Israel</h5>
 
 </div>
 </form>
+</form>
+
 
