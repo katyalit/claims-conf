@@ -1,9 +1,13 @@
 <form role = "form">
 <div class="container">
-  <div class="form-group">
-   
+
+  <nav-tabs  [pages] = "pages" ></nav-tabs>
+
+  <div  page [of]="multiPage" [name]="'Introduction'" class="form-group">
+    <intro-text></intro-text>
   </div>
 
+  <div page [of]="multiPage" [name]="'Contact Information'">
   <div class="p-3 mb-2 bg-secondary text-white"><b>Contact Information</b></div>
 
   <div class="form-group container">
@@ -127,7 +131,12 @@
      <br>
 
     <!-- page 1 -->
+     </div>
 
+
+
+
+    <div  page [of]="multiPage" [name]="'Personal History'">
     <div class="p-3 mb-2 bg-secondary text-white"><b>Personal History</b></div>
 
     <div class="form-group container">
@@ -170,6 +179,11 @@
         <input type="text" class="form-control">
       </div>
     </div>
+
+    </div>
+
+
+    <div  page [of]="multiPage" [name]="'Experience During the War'">
 
     <div class="p-3 mb-2 bg-secondary text-white"><b>Experience During the War</b></div>
 
@@ -252,6 +266,11 @@
         </div>
       </div>
     </div>
+
+    </div>
+
+
+    <div  page [of]="multiPage" [name]="'Parents Information'">
 
     <div class="p-3 mb-2 bg-secondary text-white"><b>Parents Information </b></div>
 
@@ -345,7 +364,12 @@
 </div>
 </div>
 
+</div>
+
+
 <!-- page 2 -->
+
+<div  page [of]="multiPage" [name]="'Previous Compensation'">
 
 <div class="p-3 mb-2 bg-secondary text-white"><b>Previous Compensation  </b></div>
 
@@ -396,12 +420,12 @@
       <div class="col">
         <input type="text" class="form-control" placeholder="">
       </div>
-      <div class="col">
+      <div class="col ">
         <input type="text" class="form-control" placeholder="">
       </div>
       
 
-        <div class="col ">
+        <div class="col  ">
           <input type="radio" name="camp" value=" camp"  checked>One-time <br>
           <input type="radio" name="camp" value=" camp">Pension<br>
         </div>
@@ -419,6 +443,10 @@
        &nbsp;&nbsp; <button type="button" class="btn btn-danger">+</button>  <b> Add program</b>
        <br>
        <br>
+
+       </div>
+
+       <div  page [of]="multiPage" [name]="'Banking Information'">
         
 
        <div class="p-3 mb-2 bg-secondary text-white"><b>Banking Information  </b></div>
@@ -473,7 +501,11 @@
     
     </div>
 
+    </div>
+
     <!-- page 3 -->
+
+    <div  page [of]="multiPage" [name]="'Required Documentation'">
 
     <div class="p-3 mb-2 bg-secondary text-white"><b>Required Documentation </b></div>
     <div class="form-group container">
@@ -589,15 +621,378 @@
 
       </div><br>
 
+      <b>Has your name changed?</b><br>
+If your name now is not the same as your name at birth, you MUST submit a copy of documents linking your<br>
+ nam eat birth to your current name, such as a marriage certificate or other name change document.<br><br>
+<b>Authorized Representatives/Guardians</b><br>
+If an applicant is unable to sign this application form, an authorized representative may sign on his/her<br>
+ behalf. Inaddition to the required documents listed above, please submit <b>ALL </b>of the following documents:<br>
 
-      <text-pages-four-six></text-pages-four-six>
+ <ul>
+     <li>
+        Photocopy of a Power of Attorney or other document granting legal guardianship
+     </li>
+ </ul>
+
+ <ul>
+    <li>
+        Photocopy of the authorized representative’s government issued ID
+    </li>
+</ul>
+
+<ul>
+    <li>
+        A completed Doctor’s Form which can be downloaded from our website, www.claimscon.org
+    </li>
+</ul>
+<br>
+
+<b>Certification instructions</b><br>
+The following entities may certify your documents. Please visit our website (www.claimscon.org) for additional list of
+entities that may certify your documents.<br>
+
+<ul>
+    <li>
+       Notary public
+    </li>
+</ul>
+
+<ul>
+    <li>
+       German consulate
+    </li>
+</ul>
+
+<ul>
+    <li>
+       Bank
+    </li>
+</ul>
+
+<ul>
+    <li>
+      Governmental office of the State of Israel
+    </li>
+</ul>
+
+<ul>
+    <li>
+       Jewish social service agency possessing a seal
+    </li>
+</ul>
+
+<ul>
+    <li>
+      Amcha office (in Israel) 
+    </li>
+</ul>
+
+<ul>
+    <li>
+       City/town hall (in Europe)
+    </li>
+</ul>
+<br>
+
+In order to be properly certified, each document must have <b>ALL</b>  of the following:<br>
+<ul>
+    <li>
+       The stamp of the certifying authority;
+    </li>
+</ul>
+
+<ul>
+    <li>
+      The full name (in print letters) of the person certifying the document;
+    </li>
+</ul>
+
+<ul>
+    <li>
+      The title or position of the person certifying the document;
+    </li>
+</ul>
+
+<ul>
+    <li>
+      The signature of the person certifying the document; and
+    </li>
+</ul>
+<ul>
+    <li>The date of certification.
+      
+    </li>
+</ul>
+
+
+    </div>
+
+
+    <div  page [of]="multiPage" [name]="'Declaration'" >
+
+      
+<!-- page 4 ended -->
+
+<div class="p-3 mb-2 bg-secondary text-white"><b>Declaration</b></div>
+
+  <ul>
+      <li>
+        I declare that all above and attached statements are true. 
+      </li>
+  </ul>
+
+  <ul>
+      <li>
+
+        I am aware that knowingly making untrue statements will result in a rejection.
+         Positive decisions made on false
+         information will be overturned and I will return the full amount paid to me by the 
+         Claims Conference.
+      </li>
+  </ul>
+
+  <ul>
+      <li>
+          
+        Should I be entitled to only one payment of euro 2,500 and receive, by mistake, more than this amount, I agree
+        that I am required to return the balance to the Claims Conference.
+      </li>
+  </ul>
+
+  <ul>
+      <li>
+          In the event that I am obligated, pursuant to this declaration or otherwise, to return payment to the Claims
+Conference, I hereby agree that I shall also be liable to reimburse the Claims Conference for any costs and
+expenses incurred by the Claims Conference in obtaining the return of such payments.
+        
+      </li>
+  </ul>
+
+  <ul>
+      <li>
+          
+   I understand and hereby agree that the eligibility criteria are solely based on German law. I hereby
+unconditionally agree that Frankfurt am Main, Germany is the court of exclusive jurisdiction. I also agree that any  
+
+dispute shall be decided according to the laws of the Federal Republic of Germany.
+      </li>
+  </ul>
+
+  <ul>
+      <li>
+  I am aware that I have no legal entitlement to receive assistance. Without derogating from the above, I
+irrevocably waive— insofar as this is legally admissible—any claim that I have or may later assert against the
+Conference on Jewish Material Claims against Germany relating to or connected with this application or the
+processing thereof.        
+        
+      </li>
+  </ul>
+
+  <ul>
+      <li>
+          I hereby authorize the Claims Conference to request and review any documents from the German Federal
+Indemnification Authorities concerning my siblings and parents who may be deceased.
+        
+      </li>
+  </ul>
+
+  <ul>
+      <li>
+          
+    I agree that the Claims Conference may request additional information and documents to process my
+application.     
+      </li>
+  </ul>
+
+  <ul>
+      <li>
+          
+    I agree that the Claims Conference may determine the compensation programs that are appropriate to my
+application on my behalf. 
+
+   
+      </li>
+  </ul>
+  
+</div>
+<div page [of]="multiPage" [name]="'Consent'">
+
+  <div class="p-3 mb-2 bg-secondary text-white"><b>Consent </b></div>
+
+  I authorize the authorities, courts, archives and institutions in Germany and abroad to grant the Claims<br>
+Conference access to my compensation files, including those based on the Bundesentschädigungsgesetz, the laws<br>
+and provisions of Wiedergutmachung of the German State Governments, or German Federal or State hardship<br>
+funds for victims of national socialist persecution, to provide information necessary for the examination and<br>
+execution of my application.<br><br>
+I am aware that these documents and the information may also include the following special categories of<br>
+personal information: name, address, age date of birth, gender, education, profession, personal data revealing<br>
+racial or ethnic origin, political or ideological opinions, religious beliefs or union membership and data concerning<br>
+health.<br><br>
+I understand that information concerning me collected in this form, and the other individuals referred to on this<br>
+form, including my family, guardian, or doctor (“Third Parties”) will be processed in accordance with Claims<br>
+Conference privacy notice which can be found at
+
+<a href=" http://www.claimscon.org/about/privacy-policy"> http://www.claimscon.org/about/privacy-policy</a>
+
+
+. I confirm that I<br>
+have made these Third Parties aware of this notice and have their permission for the Claims Conference, and any<br>
+third parties set out in the notice, to process their personal information in this application form.<br><br>
+
+
+The processing of these data serves the purpose of processing my request for benefits under one or more of the<br>
+Claims Conference compensation funds, which includes the Article 2 Fund, the Central Eastern European Fund,<br>
+the Child Survivor Fund, the Kindertransport Fund, and the Hardship Fund.<br><br>
+
+
+I understand that personal data processed in connection with this application may be transferred to Claims<br>
+Conference offices, including but not limited to offices in the U.S., Germany and Israel. I also agree that my<br>
+personal data may be made available to the German Ministry of Finance and the German Federal Audit Office<br>
+solely for review and audit purposes, in the framework of the data protection provisions of the Federal Republic<br>
+of Germany.<br><br>
+
+
+Information relating to my ethnic and racial origins, political or ideological opinions, religious beliefs, union<br>
+membership, and health is considered to be special category data under European data protection law (“Sensitive<br>
+Personal Data”). We require your express consent under European data protection law to process Sensitive<br>
+Personal Data. <br><br>
+By signing below, I hereby expressly accept that in order to determine my eligibility for the compensation<br>
+program and receive payment: <br><br>
+
+<ul>
+  <li>
+
+My Sensitive Personal Data shall be processed by the Claims Conference to determine my eligibility for
+benefits from the Claims Conference restitution programs specified above.
+
+  </li>
+</ul>
+
+<ul>
+  <li>
+
+My Sensitive Personal Data shall be shared with the German Ministry of Finance/Federal Audit Office.
+
+  </li>
+</ul>
+
+<ul>
+  <li>
+
+As needed, my personal data and Sensitive Personal Data collected in this form shall be transferred
+outside of the European Economic Area. 
+  
+
+  </li>
+</ul>
+
+In addition, I agree that the Claims Conference may use the personal information contained herein in order to<br>
+provide me with additional information regarding compensation programs or social welfare benefits that are<br>
+available to Nazi victims.<br><br>
+
+The Claims Conference recognizes my rights in relation to my personal information as set forth in the Claims<br>
+Conference privacy notice at
+
+<a href="http://www.claimscon.org/about/privacy-policy">http://www.claimscon.org/about/privacy-policy</a>
+
+.<br><br>
+
+
+I understand I have the right to withdraw my consent at any time. To withdraw my consent, to exercise my<br>
+rights under the privacy notice or to make any complaints I understand I should contact The Claims Conference<br>
+at 
+<a href="mailto:privacy@claimscon.org">privacy@claimscon.org</a>
+
+
+
+or PO Box 1215, New York, New York 10113. The revocation of consent shall not affect<br>
+the lawfulness of the processing which has been carried out on the basis of the consent until its revocation. If I<br>
+withdraw my consent, I understand that the Claims Conference may not be able to process my application or<br>
+comply with its obligations required to make any payment. <br><br>
+
+</div>
+
+<div page [of]="multiPage" [name]="'Signature and Certification'">
+
+  <h4>THIS FORM MUST BE SIGNED AT THE SAME TIME IT IS CERTIFIED</h4>
+<h5>In front of a German consulate, bank, notary, a Jewish social service agency possessing a seal,
+City/town hall (in Europe), or a governmental office of the State of Israel</h5>
+
+
+<button type="button" class="btn btn-danger">download the form here</button>
+<br><br>
+
+<div class="form-group">
+    <label for="exampleFormControlFile1">Please uploaud a signed form:</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+</div>
+</div>
+
+<div page [of]="multiPage" [name]="'Addition Files'">
+  
+<div class="p-3 mb-2 bg-secondary text-white"><b>Add Additional Files </b></div>
+<br>
+
+<div class="form-group">
+    <label for="exampleFormControlFile1">1)  Attach a government issued photo ID that matches the document listed in
+        the Proof of Identity section and Certification section:</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div><br>
+
+  <div class="form-group">
+    <label for="exampleFormControlFile1">2) Attach photocopies of Birth certificate:</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div><br>
+
+  <div class="form-group">
+    <label for="exampleFormControlFile1">3) Attach photocopies of Birth Documents linking your name at birth to your current name if you
+        have listed that your name has changed, such as a marriage certificate
+        or other name change document:</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div><br>
+
+  <div class="form-group">
+    <label for="exampleFormControlFile1">4) Attach photocopies of Documents that can show your Jewish ancestry:</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div><br>
+
+  <div class="form-group">
+    <label for="exampleFormControlFile1">5) Attach Receipt of previous compensation payment, if applicable:</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div><br>
+
+  <div class="form-group">
+    <label for="exampleFormControlFile1">6) Attach Photocopy of Social Security Card if you are a resident of the United States of
+        America:</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div><br>
+
+  <div class="form-group">
+    <label for="exampleFormControlFile1">7) Attach photocopies of Authorized Representative documents if you are filling out this
+        application on an applicant’s behalf:</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div><br>
+
+  
+  <div class="form-group">
+    <label for=" control-label">
+        8) Any additional documents that you have that may help substantiate
+        your participation in the Kindertransport
+    </label>
+            <input id="input-2" name="input2[]" type="file" class="file" multiple data-show-upload="true" data-show-caption="true">
+        
+</div>
+<button type="button" class="btn btn-danger btn-lg btn-block">Submit form</button>
+</div>
+
 
     
 
 
   
 
-
+      
+      
 
 
 
