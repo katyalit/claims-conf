@@ -4,7 +4,6 @@
    
   </div>
 
-  <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
   <div class="p-3 mb-2 bg-secondary text-white"><b>Contact Information</b></div>
 
   <div class="form-group container">
@@ -367,8 +366,236 @@
   <div class="input-group-prepend">  
   <input type="text" class="form-control">
   </div>
+  </div><br><br>
+
+
+  <div class="form-group container">
+    <label for="text">If you have ever applied to other compensation programs for your persecution, please list these programs and
+      whether you were awarded compensation (for example, the Claims Conference funds, the German BEG
+      Wiedergutmachung or Länderhärtefonds, payments from the Israeli Ministry of Finance, the Austrian Opferfürsorge,
+      or the French Orphan Pension).
+      If you receive(d) compensation for your persecution, please include any documentation you have referring to this payment.  </label>
+
+    <br>
+    <br>
   </div>
 
+  <!-- <div class="form-row container"> -->
+    <div class="form-row container">
+    <span class="col" id=""><b>Fund or Program:</b></span>
+    <span class=" col" id=""><b>Country:</b> </span>
+    <span class="col" id=""><b>Claim Number:</b></span>
+    <span class=" col" id=""><b>One-time payment or pension:</b></span>
+    <span class=" col" id=""><b>Was payment awarded?</b></span>
+    </div><br>
+
+    <div class="form-row container">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="">
+      </div>
+      
+
+        <div class="col ">
+          <input type="radio" name="camp" value=" camp"  checked>One-time <br>
+          <input type="radio" name="camp" value=" camp">Pension<br>
+        </div>
+        
+
+        <div class=" col ">
+          <input type="radio" name="camp" value=" camp" checked>Yes<br>
+          <input type="radio" name="camp" value=" camp">No<br>
+        </div>
+
+      </div><br>
+
+    
+       <!-- TO DO : add more -->
+       &nbsp;&nbsp; <button type="button" class="btn btn-danger">+</button>  <b> Add program</b>
+       <br>
+       <br>
+        
+
+       <div class="p-3 mb-2 bg-secondary text-white"><b>Banking Information  </b></div>
+
+<div class="form-group container">
+  <label for="text">In case of a positive decision, having your bank account information on file will expedite payment. We can only wire
+    payment to bank accounts in your name. </label>
+    
+    <div class="input-group-prepend"> 
+      <span class="input-group-text" id="">Name of Bank</span>
+      <input type="text" class="form-control">
+      <span class="input-group-text" id="">Address of Bank</span>
+      <input type="text" class="form-control">
+    </div>
+    <br>
+
+    <div class="input-group-prepend"> 
+      <span class="input-group-text" id="">IBAN number (EU residents) or
+        Account Number (all other countries)</span>
+    </div>
+    <input type="text" class="form-control"><br>
+
+    <div class="input-group-prepend"> 
+      <span class="input-group-text" id="">ABA Routing Code (USA Residents)/
+        Sortcode (UK Residents)/
+        SWIFT Code (all other countries)</span>
+    </div>
+    <input type="text" class="form-control"><br>
+    <br>
+
+    <div class="input-group-prepend"> 
+      <span class="input-group-text" id="">For Israeli residents &nbsp;  <b>only </b> &nbsp;:
+        Bank Branch Number</span>
+    </div>
+    <input type="text" class="form-control"><br>
+    <br>
+
+
+    <div class="input-group-prepend"> 
+      <span class="input-group-text" id="">For Canadian residents  &nbsp;  <b>only </b> &nbsp;:
+        Transit and Institutional number</span>
+    </div>
+    <input type="text" class="form-control"><br>
+    <br>
+
+
+    <div class="input-group-prepend"> 
+      <span class="input-group-text" id="">For Australian residents  &nbsp;  <b>only </b> &nbsp;:
+        Bank State Branch (“BSB”)</span>
+    </div>
+    <input type="text" class="form-control">
+    
+    </div>
+
+    <!-- page 3 -->
+
+    <div class="p-3 mb-2 bg-secondary text-white"><b>Required Documentation </b></div>
+    <div class="form-group container">
+      <b>Proof of Identity</b>
+      <label for="text">To complete your application, please provide us with a copy of a valid government-issued ID.
+        This ID must have your photo and a signature.   </label><br><br>
+        <label for="gender">What type of ID are you submitting?  </label>
+    <div class="form-group">
+      <input type="radio" name="gender" value=" male" checked> Passport<br>
+      <input type="radio" name="gender" value=" female"> National Identity Card <br>
+      <input type="radio" name="gender" value=" female"> Driver license <br>
+      <input type="radio" name="gender" value=" female"> Other<br>
+      <div class="col-3">
+        <input type="text" class="form-control" placeholder="please specify">
+      </div>
+    </div>
+    
+    </div>
+
+    
+    
+      <div class="row">
+        
+        <div class="col">
+          <span class="input-group-text" id="">What is the ID number associated with this ID? </span>
+          <input type="text" class="form-control" placeholder="">
+        </div>
+        <div class="col">
+          <span class="input-group-text" id="">What is the country of issue? </span>
+          <input type="text" class="form-control" placeholder="">
+        </div>
+      </div><br>
+
+      <div class="row ">
+        <div class="col">
+          <div class="row container">
+            <label for="text">When was it issued?  </label><br>
+           </div>
+          <div class=" row">
+            
+            <div class="col">
+              <span class="input-group-text" id="">Day </span>
+          <input type="text" class="form-control" placeholder="">
+          </div>
+          <div class="col">
+            <span class="input-group-text" id="">Month </span>
+          <input type="text" class="form-control" placeholder="">
+          </div>
+          <div class="col">
+            <span class="input-group-text" id=""> Year </span>
+          <input type="text" class="form-control" placeholder="">
+          </div>
+          </div>
+          </div>
+        
+
+          <div class="col">
+            <div class="row container">
+              <label for="text">When does it expire? </label><br>
+             </div>
+            <div class=" row">
+              
+              <div class="col">
+                <span class="input-group-text" id="">Day </span>
+            <input type="text" class="form-control" placeholder="">
+            </div>
+            <div class="col">
+              <span class="input-group-text" id="">Month </span>
+            <input type="text" class="form-control" placeholder="">
+            </div>
+            <div class="col">
+              <span class="input-group-text" id=""> Year </span>
+            <input type="text" class="form-control" placeholder="">
+            </div>
+            </div>
+            </div>
+
+
+        </div>
+      <br>
+
+      <div class="row">
+        
+        <div class="col">
+          <div class="row">
+            <div class="col">
+            
+          <span class="text" id="">For current residents of the Unites States only:
+            You must <br>also provide a copy of your Social Security
+            card.<br> What is your Social Security Number?  </span>
+            </div>
+            <div class="row">
+              <span class="text" id="">For current or former residents of Israel only:
+                What is your Israel<br> ID number? </span>
+            </div>
+            </div><br>
+
+
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                 <input type="text" class="form-control" placeholder="">
+               </div>
+               <div class="col">
+                <input type="text" class="form-control" placeholder="">
+              </div>
+          </div>
+          </div>
+        </div>
+
+        
+
+
+      </div><br>
+
+
+      <text-pages-four-six></text-pages-four-six>
+
+    
+
+
+  
 
 
 
