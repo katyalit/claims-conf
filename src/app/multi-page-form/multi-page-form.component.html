@@ -1,6 +1,8 @@
-<form role = "form"> 
-   <form class="was-validated">
+<form [formGroup]="kinderForm" (ngSubmit)="onSubmit(kinderForm)"> 
 <div class="container">
+  <div class="alert alert-success">
+    <div class="container text-center">autosave active (saved)</div>
+  </div>
 
   <nav-tabs  [pages] = "pages" ></nav-tabs>
   <nav-show-all-button [of]="multiPage"></nav-show-all-button>
@@ -19,18 +21,26 @@
         <label for="text">What is your current name? </label>
         <div class="input-group-prepend"> 
 
-          <span class="input-group-text" id="">Family Name:</span>
-          <input  name="familyName"
-           id="familyName" type="text" class="form-control">
-          <!-- <div class="invalid-feedback" *ngIf ="familyName.touched &&!familyName.valid"> Family name is required</div> -->
-
-          <span class="input-group-text" id="">First Name:</span>
+          <span class="input-group-text" id="" >
+              <invalid-tooltip [show]= "notValid('familyName')">Must contain at least 2 letters</invalid-tooltip>
+           Family Name:
+          </span>
+          <input  
+            name="familyName"
+            formControlName="familyName"
+            id="familyName" type="text" class="{{determineStyle('familyName')}}">
+           
+            
+          <span class="input-group-text" id="">
+            <invalid-tooltip [show]= "notValid('firstName')"> Must contain at least 2 letters</invalid-tooltip>
+            First Name:
+          </span>
           <input name="firstName"
-          id="firstName" type="text" class="form-control">
-          <!-- <div class="invalid-feedback" *ngIf ="!familyName.valid">First name is required</div> -->
-
+            formControlName="firstName"
+          id="firstName" type="text" class="{{determineStyle('firstName')}}">
+          
           <span class="input-group-text" id="">Middle Name:</span>
-          <input name= "middleName"  type="text" class="form-control">
+          <input name= "middleName" formControlName="middleName"  type="text" class="form-control">
         </div>
   </div>
   
@@ -40,24 +50,24 @@
         <label for="text">Have you ever used another name? If yes, please include all previous names (including maiden name): </label>
         <div class="input-group-prepend"> 
           <span class="input-group-text" id="">Family Name:</span>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="anotherFamilyName">
           <span class="input-group-text" id="">First Name:</span>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="anotherFirstName">
           <span class="input-group-text" id="">Middle Name:</span>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" formControlName="anotherMiddleName">
         </div>
   </div>
 
   <div class="form-group container">
   <label for="text">Gender:</label>
   <div class="custom-control custom-radio ">
-    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+    <input type="radio" [value]="'male'" controlFormName="gender" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
     <label class="custom-control-label" for="customControlValidation2">Male</label>
   </div>
   <div class="custom-control custom-radio mb-3 ">
-    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+    <input type="radio" [value]="'female'" controlFormName="gender" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
     <label class="custom-control-label" for="customControlValidation3">Female</label>
-    <div class="invalid-feedback">Gender required</div>
+    <div *ngIf="notValidNoTouchedTest('gender')" class="invalid-feedback">Gender required</div>
   </div>
   </div>
 
@@ -65,10 +75,18 @@
   <div class="form-group container">
     <label for="text">Where do you live?<br> </label>
     <div class="input-group-prepend"> 
-      <span class="input-group-text" id="">Street Address, Apt:</span>
-      <input type="text" class="form-control">
-      <span class="input-group-text" id="">City/Town:</span>
-      <input type="text" class="form-control">
+      <span class="input-group-text" id="">
+        <invalid-tooltip [show]="notValid('streetApt')">Address field is required</invalid-tooltip>
+        Street Address, Apt:
+      </span>
+      <input type="text" formControlName="streetApt" class="{{determineStyle('streetApt')}}" >
+     
+
+      <span class="input-group-text" id="">
+        <invalid-tooltip [show]="notValid('city')">City field is required</invalid-tooltip>
+        City/Town:
+      </span>
+      <input type="text" formControlName="city" class="{{determineStyle('city')}}">
   
     </div>
   </div>
@@ -76,27 +94,42 @@
   
     <div class="input-group-prepend container"> 
       <span class="input-group-text" id="">Region/State/Province:</span>
-      <input type="text" class="form-control">
-      <span class="input-group-text" id="">Country:</span>
-      <input type="text" class="form-control">
-      <span class="input-group-text" id="">Postal Code:</span>
-      <input type="text" class="form-control">
+      <input formControlName="state" type="text" class="form-control">
+
+      <span class="input-group-text" id="">
+        <invalid-tooltip [show]="notValid('country')">Country field is required</invalid-tooltip>
+        Country:
+      </span>
+      <input type="text" formControlName="country" class="{{determineStyle('country')}}">
+
+      <span class="input-group-text" id="">
+        <invalid-tooltip [show]="notValid('postalCode')"> Invalid Postal Code</invalid-tooltip>
+        Postal Code:
+      </span>
+      <input type="text" formControlName="postalCode" class="{{determineStyle('postalCode')}}">
     </div><br>
 
     <div class="input-group-prepend container"> 
-      <span class="input-group-text" id="">Telephone:</span>
-      <input type="text" class="form-control">
-      <span class="input-group-text" id="">Email:</span>
-      <input type="text" class="form-control">
+      <span class="input-group-text" id="">
+        <div class="invalid-tooltip" *ngIf="notValid('telephone')">Telephone field is required </div>
+        Telephone:
+      </span>
+      <input type="text" formControlName = "telephone" class="{{determineStyle('telephone')}}">
+
+      <span class="input-group-text" id="">
+        <invalid-tooltip [show]="notValid('email')"> Invalid Email</invalid-tooltip>
+        Email:
+      </span>
+      <input type="text" formControlName = "email" class="{{determineStyle('email')}}" >
     </div>
      <br>
 
      <div class="form-group container">
       <label for="language">What is your preferred language of correspondence? </label>
       <div class="form-group">
-        <input type="radio" name="language" value=" male" checked> English 
-        <input type="radio" name="language" value=" female"> Hebrew 
-        <input type="radio" name="language" value=" female"> German
+        <input type="radio"  controlFormName="language" name="language" value=" male" checked> English 
+        <input type="radio" controlFormName="language" name="language" value=" female"> Hebrew 
+        <input type="radio" controlFormName="language" name="language" value=" female"> German
         <br>
       </div>
     </div>
@@ -106,36 +139,36 @@
         claim? If so, please provide this person’s contact information below.<br> </label>
       <div class="input-group-prepend"> 
         <span class="input-group-text" id="">Family Name:</span>
-        <input type="text" class="form-control">
+        <input type="text"  controlFormName="contactFamilyName"class="form-control">
         <span class="input-group-text" id="">First Name:</span>
-        <input type="text" class="form-control">
+        <input type="text"  controlFormName="contactFirstName"class="form-control">
         <span class="input-group-text" id="">Relationship to you: </span>
-        <input type="text" class="form-control">
+        <input type="text" controlFormName="contactRelationship" class="form-control">
       </div>
     </div>
 
     <div class="input-group-prepend container"> 
       <span class="input-group-text" id="">Street Address, Apt:</span>
-      <input type="text" class="form-control">
+      <input type="text" controlFormName="contactAddress" class="form-control">
       <span class="input-group-text" id="">City/Town:</span>
-      <input type="text" class="form-control">
+      <input type="text" controlFormName="contactCity" class="form-control">
     </div><br>
 
     <div class="input-group-prepend container"> 
       <span class="input-group-text" id="">Region/State/Province:</span>
-      <input type="text" class="form-control">
+      <input type="text" controlFormName="contactState" class="form-control">
       <span class="input-group-text" id="">Country:</span>
-      <input type="text" class="form-control">
+      <input type="text" controlFormName="contactCountry" class="form-control">
       <span class="input-group-text" id="">Postal Code:</span>
-      <input type="text" class="form-control">
+      <input type="text" controlFormName="contactPostalCode" class="form-control">
     </div><br>
 
     
     <div class="input-group-prepend container"> 
       <span class="input-group-text" id="">Telephone:</span>
-      <input type="text" class="form-control">
+      <input type="text"  controlFormName="contactTelephone"class="form-control">
       <span class="input-group-text" id="">Email:</span>
-      <input type="text" class="form-control">
+      <input type="text" controlFormName="contactEmail" class="form-control">
     </div>
      <br>
 
@@ -152,11 +185,11 @@
       <label for="text">Where were you born?  </label>
       <div class="input-group-prepend"> 
         <span class="input-group-text" id="">City/Town of Birth: </span>
-        <input type="text" class="form-control">
+        <input type="text" controlFormName= "bornCity" class="form-control">
         <span class="input-group-text" id="">Region of Birth:</span>
-        <input type="text" class="form-control">
+        <input type="text" controlFormName="bornRegion" class="form-control">
         <span class="input-group-text" id="">Country of Birth: </span>
-        <input type="text" class="form-control">
+        <input type="text" controlFormName= "bornCountry" class="form-control">
       </div>
     </div>
 
@@ -165,11 +198,11 @@
       <label for="text">What is your official date of birth? </label>
          <div class="input-group-prepend"> 
         <span class="input-group-text" id="">Day: </span>
-        <input type="text" class="form-control">
-        <span class="input-group-text" id="">Month:</span>
-        <input type="text" class="form-control">
+        <input type="text" controlFormName="bornDay" class="form-control">
+        <span class="input-group-text"  id="">Month:</span>
+        <input type="text" controlFormName="bornMonth" class="form-control">
         <span class="input-group-text" id="">Year: </span>
-        <input type="text" class="form-control">
+        <input type="text" controlFormName= "bornYear" class="form-control">
        </div>
        </div>
 
@@ -181,11 +214,11 @@
 
       <div class="input-group-prepend"> 
         <span class="input-group-text" id="">Day: </span>
-        <input type="text" class="form-control">
+        <input type="text" controlFormName="anotherBDay" class="form-control">
         <span class="input-group-text" id="">Month:</span>
-        <input type="text" class="form-control">
+        <input type="text" controlFormName="anotherBM"class="form-control">
         <span class="input-group-text" id="">Year: </span>
-        <input type="text" class="form-control">
+        <input type="text" controlFormName="anotherBY"class="form-control">
       </div>
     </div>
 
@@ -200,20 +233,20 @@
       <label for="language">How were you persecuted as a Jew by the Nazis and/or by 
         their allies? Please check all that apply: </label>
       <div class="form-group">
-        <input type="radio" name="camp" value=" camp" checked> I was in a camp or similar place of incarceration.<br>
-        <input type="radio" name="ghetto" value=" ghetto"> I was in a ghetto.<br>
-        <input type="radio" name="hiding" value="hiding"> I lived in hiding without access to the outside world.<br>
-        <input type="radio" name="false identity" value="false identity"> I lived in illegality/under a false identity.<br>
-        <input type="radio" name="kinder" value="Kindertransport"> I was sent on a Kindertransport when I was under 21 years old.
+        <input type="radio" controlFormName="howPersecuted" name="camp" value=" camp" checked> I was in a camp or similar place of incarceration.<br>
+        <input type="radio"controlFormName="howPersecuted" name="ghetto" value=" ghetto"> I was in a ghetto.<br>
+        <input type="radio" controlFormName="howPersecuted" name="hiding" value="hiding"> I lived in hiding without access to the outside world.<br>
+        <input type="radio" controlFormName="howPersecuted" name="false identity" value="false identity"> I lived in illegality/under a false identity.<br>
+        <input type="radio" controlFormName="howPersecuted" name="kinder" value="Kindertransport"> I was sent on a Kindertransport when I was under 21 years old.
          <br>
       </div>
-    </div>
+    </div> 
 
     <div class="form-group container">
       <label for="text">Which country were you living in prior to 9 November 1938 (Kristallnacht)</label>
 
       <div class="input-group-prepend"> 
-        <input type="text" class="form-control">
+        <input type="text" controlFormName="countryPriorNine" class="form-control">
       </div>
     </div>
 
@@ -222,9 +255,9 @@
 
       <div class="input-group-prepend"> 
         <span class="input-group-text" id="">Country:</span>
-        <input type="text" class="form-control">
+        <input type="text" controlFormName="countryAftherNine" class="form-control">
         <span class="input-group-text" id="">Year: </span>
-        <input type="text" class="form-control"><br>
+        <input type="text" controlFormName="aftherNineYear" class="form-control"><br>
         <!-- TO DO :add more countries -->
       </div>
       <br>
@@ -238,9 +271,9 @@
 
       <div class="input-group-prepend"> 
         <span class="input-group-text" id="">Month:</span>
-        <input type="text" class="form-control">
+        <input type="text" controlFormName="kinderLeaveMonth" class="form-control">
         <span class="input-group-text" id="">Year: </span>
-        <input type="text" class="form-control"><br>
+        <input type="text" controlFormName="kinderLeaveYear "class="form-control"><br>
       </div>
     </div>
     
@@ -251,23 +284,23 @@
          </label>
 
       <div class="input-group-prepend"> 
-        <input type="text" class="form-control">
+        <input type="text"  controlFormName="kinderLeaveFrom" class="form-control">
       </div>
     </div>
 
     <div class="form-group container">
-      <label for="language">Did your mother or father accompany you on the Kindertransport? </label>
+      <label for="mf">Did your mother or father accompany you on the Kindertransport? </label>
       <div class="form-group">
-        <input type="radio" name="yes" value=" yes" checked> Yes.<br>
-        <input type="radio" name="no" value="no"> No.<br>
+        <input type="radio"  controlFormName="mOrFAccompany" name="yes" value=" yes" checked> Yes.<br>
+        <input type="radio"   controlFormName="mOrFAccompany" name="no" value="no"> No.<br>
       </div>
     </div>
     
     <div class="form-group container">
       <label for="language">Did any siblings accompany you?</label>
       <div class="form-group">
-        <input type="radio" name="yes" value=" yes" checked> Yes.<br>
-        <input type="radio" name="no" value="no"> No.<br>
+        <input type="radio" controlFormName="sAccompany"  name="yes" value=" yes" checked> Yes.<br>
+        <input type="radio" controlFormName="sAccompany"  name="no" value="no"> No.<br>
         <label for="language">- If Yes, please insert their current first and last name(s). </label>
         <!-- TO DO: if yes -->
         <div class="input-group-prepend"> 
@@ -991,7 +1024,7 @@ City/town hall (in Europe), or a governmental office of the State of Israel</h5>
             <input id="input-2" name="input2[]" type="file" class="file" multiple data-show-upload="true" data-show-caption="true">
         
 </div>
-<button type="button" class="btn btn-danger btn-lg btn-block">Submit form</button>
+<button type="submit" class="btn btn-danger btn-lg btn-block">Submit form</button>
 </div>
 
 
@@ -1007,11 +1040,11 @@ City/town hall (in Europe), or a governmental office of the State of Israel</h5>
 
 
 
+<br><br>
+<div class="container text-center"><nav-dropdown [pages]="pages"></nav-dropdown></div>
 
-
-<nav-dropdown [pages]="pages"></nav-dropdown>
 </div>
-</form>
+
 </form>
 
 

@@ -1,0 +1,18 @@
+.relative-pos-for-tooltip {
+    position: relative!important;
+    width: 0;
+    height: 0;
+}
+.invalid-tooltip {
+    position: absolute;
+    top: 25px!important;
+    left: 50px!important;
+    z-index: 5;
+    padding: 0.25rem 0.5rem;
+    margin-top: .1rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #fff;
+    background-color: rgba(220, 53, 69, 0.9);
+    border-radius: 0.25rem;
+  }
