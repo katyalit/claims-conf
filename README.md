@@ -1,27 +1,20 @@
-# ClaimsForm
+Hi! First I would like to thank you very much for the opportunity!
+I've worked hard on the project for the last 3 days because I wanted to show my ability beyond simple html+css design for the form you have given me.
+Thats why I took the time to learn Angular, and implemented 3 different features:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
+1. MultiPage: A component that allows to easily divide content into separate pages. 
+It include 3 different optional nav components:
+ - nav-tabs: navigate between pages with a tab UI
+ - nav-dropdown: use a dropdown list of all pages to navigate
+ - show-all-button: shows all pages at once.
+ 
+2. Local Data Saving: while filling the form, the progress is automatically saved locally on the computer. You can exit the site and it will be kept.
+3. Validation: I did not have the time to apply validation to the entire form (It is very long 😅) But It is available, including regular expressions for some of the fields.
 
-## Development server
+In addition, I have put my design in your site template, to show how it would look. I used Githup Pages to host the site and let you see it in action.
+The repository is also public on GitHub for you to look at the code.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The site: https://katyalit.github.io/claims-conf/
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Thank You,
+Katya Litvinsky
