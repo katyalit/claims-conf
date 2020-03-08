@@ -52,7 +52,7 @@ export class PageDirective implements Page, OnInit{
     
   }
   scrollIntoView() {
-    setTimeout(() => this.el.nativeElement.scrollIntoView(), 160);
+    setTimeout(() => this.el.nativeElement.scrollIntoView(), 160); // 
   }
 }
 
