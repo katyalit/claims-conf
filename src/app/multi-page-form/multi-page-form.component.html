@@ -10,6 +10,8 @@
 
   <div  page [of]="multiPage" [name]="'Introduction'" class="form-group">
     <intro-text></intro-text>
+
+    
   </div>
 
   <div page [of]="multiPage" [name]="'Contact Information'">
@@ -111,7 +113,7 @@
 
     <div class="input-group-prepend container"> 
       <span class="input-group-text" id="">
-        <div class="invalid-tooltip" *ngIf="notValid('telephone')">Telephone field is required </div>
+        <invalid-tooltip [show]="notValid('telephone')">Telephone number not valid </invalid-tooltip>
         Telephone:
       </span>
       <input type="text" formControlName = "telephone" class="{{determineStyle('telephone')}}">
@@ -1039,7 +1041,8 @@ City/town hall (in Europe), or a governmental office of the State of Israel</h5>
 
 
 
-
+<br><br>
+<div class="container text-center"><nav-next-page [pages]="pages"></nav-next-page></div>
 <br><br>
 <div class="container text-center"><nav-dropdown [pages]="pages"></nav-dropdown></div>
 

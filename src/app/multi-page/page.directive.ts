@@ -51,7 +51,11 @@ export class PageDirective implements Page, OnInit{
     }
     
   }
+  scrollIntoView() {
+    setTimeout(() => this.el.nativeElement.scrollIntoView(), 160);
+  }
 }
+
 
 export interface PageLogger {
   logPage(page: Page): number;
@@ -65,6 +69,7 @@ export interface Page {
   hide(): void;
   show(): void;
   goTo?(): void;
+  scrollIntoView(): void;
 }
 
 export function getCurrentPage(){

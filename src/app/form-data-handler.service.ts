@@ -13,6 +13,7 @@ export class FormDataHandlerService {
     }
     return null;
   }
+ a = `{ "firstName": "Avishai", "lastName": "Ozeri", "address": "Uziel 14" etc.. }`
 
   save(formKey:string, formGroup: FormGroup): void{
 

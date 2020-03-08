@@ -1,0 +1,5 @@
+<ng-template 
+    *ngVar="nextPage() as next" 
+    [ngIf]="nextPage()">
+    <a type="button" class="btn btn-danger" href="#{{next.name}}"(click)="go(next)"> Go to {{next.name}}</a>
+    </ng-template>

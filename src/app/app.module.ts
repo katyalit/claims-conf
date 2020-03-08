@@ -13,6 +13,7 @@ import { PageDirective } from './multi-page/page.directive';
 import { NavShowAllButtonComponent } from './multi-page/nav-show-all-button/nav-show-all-button.component';
 import { VarDirective } from './var.directive';
 import { InvalidTooltipComponent } from './invalid-tooltip/invalid-tooltip.component';
+import { NavNextPageComponent } from './multi-page/nav-next-page/nav-next-page.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { InvalidTooltipComponent } from './invalid-tooltip/invalid-tooltip.compo
     PageDirective,
     NavShowAllButtonComponent,
     VarDirective,
-    InvalidTooltipComponent
+    InvalidTooltipComponent,
+    NavNextPageComponent
    
   ],
   imports: [
