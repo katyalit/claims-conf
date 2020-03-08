@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Page, getCurrentPage } from '../page.directive';
+import { Component, Input } from '@angular/core';
+import { Page } from '../page.directive';
 
 @Component({
   selector: 'nav-tabs',
@@ -10,6 +10,4 @@ export class NavTabsComponent {
 
   @Input() pages: Page;
   @Input() dropdown: boolean = false;
-
-  getCurrentPage = getCurrentPage;
 }

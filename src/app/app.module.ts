@@ -10,6 +10,8 @@ import { IntroTextComponent } from './intro-text/intro-text.component';
 import{ NavDropdownComponent } from './multi-page/nav-dropdown/nav-dropdown.component';
 import { NavTabsComponent } from './multi-page/nav-tabs/nav-tabs.component';
 import { PageDirective } from './multi-page/page.directive';
+import { NavShowAllButtonComponent } from './multi-page/nav-show-all-button/nav-show-all-button.component';
+import { VarDirective } from './var.directive';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { PageDirective } from './multi-page/page.directive';
     IntroTextComponent,
     NavDropdownComponent,
     NavTabsComponent,
-    PageDirective
+    PageDirective,
+    NavShowAllButtonComponent,
+    VarDirective
    
   ],
   imports: [

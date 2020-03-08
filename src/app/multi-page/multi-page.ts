@@ -5,7 +5,8 @@ export default class MultiPage implements PageLogger{
   pages: Page[] = [];
 
   currentPage: number = 1;
-  public multiPage: PageLogger = this; // for [of] = "multiPage" syntactic sugar
+  public showingAllPages:boolean = false;
+  public multiPage: MultiPage = this; // for [of] = "multiPage" syntactic sugar
 
   logPage(page: Page): number{
     const pageNum = this.pages.push(page);
@@ -29,14 +30,25 @@ export default class MultiPage implements PageLogger{
 
   public showAllPages(): void {
     this.pages.forEach( (page) => page.show());
-    this.currentPage = -1;
+    this.showingAllPages = true;
+  }
+  public hideAllPages(): void {
+    this.pages.forEach( (page: Page) =>  {
+      if (page.num !== this.currentPage) {
+      page.hide();
+      }
+    });
+    this.showingAllPages = false;
   }
 
   public goToPage(num: number): void{
-    if (num - 1 <= this.pages.length && num - 1 >= 0){
+    if (this.showAllPages) {
+      this.hideAllPages();
+    }
+    if (num - 1 <= this.pages.length && num - 1 >= 0 ) {
       this.pages[this.currentPage-1].hide();
       this.currentPage = num;
-      setTimeout(() => this.pages[this.currentPage-1].show(), 200);
+      this.pages[this.currentPage-1].show();
       
     }
   }

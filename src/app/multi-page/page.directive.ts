@@ -5,18 +5,22 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 })
 export class PageDirective implements Page, OnInit{
 
-  constructor (private el: ElementRef) {
-    this.display = el.nativeElement.style.display;
-  }
-
   @Input() of: PageLogger;
   @Input() name: string;
   num: number;
   isVisible: boolean = true; // When created all pages are visible. 
 
-  display: string;
+  private visibleDisplayStyle: string;
+
+
+  constructor (private el: ElementRef) {
+    // store display style to re-apply in show()
+    this.visibleDisplayStyle = el.nativeElement.style.display; 
+  }
+
 
   ngOnInit(){
+    // add bootstrap css classes for hiding
     if (this.el){
       this.el.nativeElement.classList.add('fade');
       this.el.nativeElement.classList.add('show');
@@ -29,18 +33,23 @@ export class PageDirective implements Page, OnInit{
   hide(){
     this.isVisible = false;
     if (this.el){
-      this.el.nativeElement.classList.remove('show');
-      setTimeout(() => this.el.nativeElement.style.position ='absolute', 200);
+      this.el.nativeElement.classList.remove('show');// will start fade animation
+      setTimeout(() => this.el.nativeElement.style.display ='none', 150);// when animation ends (0.15s) stop taking up place
 
     }
   }
   show(){
     this.isVisible = true;
+    
     if (this.el){
-      this.el.nativeElement.classList.add('show');
-      this.el.nativeElement.style.position ='relative'
+      // when previous page animation ends (0.15s) - display
+      setTimeout(() => {
+        this.el.nativeElement.classList.add('show');
+        //return to initial style
+        this.el.nativeElement.style.display=this.visibleDisplayStyle;
+      }, 150);
     }
-    this.el.nativeElement.style.display=this.display;
+    
   }
 }
 
@@ -59,9 +68,11 @@ export interface Page {
 }
 
 export function getCurrentPage(){
-  const visible = this.pages.filter( (page) => page.isVisible );
-  if (visible.length){
+  const visible = this.pages.filter( (page: Page) => page.isVisible );
+  if (visible.length == 1){
     return visible[0];
+  } else if (visible > 1) {
+    return {name: 'multiple'}
   }
   return null;
 }

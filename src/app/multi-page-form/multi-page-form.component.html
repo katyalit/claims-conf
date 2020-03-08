@@ -3,6 +3,8 @@
 <div class="container">
 
   <nav-tabs  [pages] = "pages" ></nav-tabs>
+  <nav-show-all-button [of]="multiPage"></nav-show-all-button>
+
 
   <div  page [of]="multiPage" [name]="'Introduction'" class="form-group">
     <intro-text></intro-text>
@@ -18,14 +20,14 @@
         <div class="input-group-prepend"> 
 
           <span class="input-group-text" id="">Family Name:</span>
-          <input  name="familyName" ngModel  #familyName="ngModel" required minlength="1" 
+          <input  name="familyName"
            id="familyName" type="text" class="form-control">
-          <div class="invalid-feedback" *ngIf ="familyName.touched &&!familyName.valid"> Family name is required</div>
+          <!-- <div class="invalid-feedback" *ngIf ="familyName.touched &&!familyName.valid"> Family name is required</div> -->
 
           <span class="input-group-text" id="">First Name:</span>
-          <input name="firstName" ngModel #firstName="ngModel" required minlength="1"
+          <input name="firstName"
           id="firstName" type="text" class="form-control">
-          <div class="invalid-feedback" *ngIf ="!familyName.valid">First name is required</div>
+          <!-- <div class="invalid-feedback" *ngIf ="!familyName.valid">First name is required</div> -->
 
           <span class="input-group-text" id="">Middle Name:</span>
           <input name= "middleName"  type="text" class="form-control">
@@ -1007,7 +1009,7 @@ City/town hall (in Europe), or a governmental office of the State of Israel</h5>
 
 
 
-
+<nav-dropdown [pages]="pages"></nav-dropdown>
 </div>
 </form>
 </form>

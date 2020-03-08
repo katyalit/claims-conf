@@ -2,7 +2,15 @@
   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="wrapper"><ng-content></ng-content></span>
       <span class="default"><!-- Only display if no name specified -->
-        {{getCurrentPage().num + '. ' + getCurrentPage().name}} 
+        <ng-template 
+          *ngVar="getCurrentPage() as current" 
+          [ngIf]="current && current.name !== 'multiple'" 
+          [ngIfElse]="multiple">
+           {{current.num + '. ' + current.name}}
+        </ng-template>
+        <ng-template #multiple>
+          Showing Multiple Pages
+        </ng-template>
       </span>
   </button>
 
